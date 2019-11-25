@@ -24,7 +24,6 @@ public class Menu {
 
 	public Menu() {
 		frame = new JFrame("Software");
-
 		// para que o botao de fechar a janela termine a aplicacao
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

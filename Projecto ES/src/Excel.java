@@ -15,9 +15,7 @@ public class Excel {
 		this.selectedExcel=f;
 	}
 	
-	public void setSelectedExcel(File selectedExcel) {
-		this.selectedExcel = selectedExcel;
-	}
+
 }
 
 
