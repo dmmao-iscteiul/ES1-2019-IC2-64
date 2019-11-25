@@ -6,10 +6,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Excel {
 	
 	private File selectedExcel;
-	
-	public Excel() {
-		selectedExcel=null;
-	}
+
 	public void visualizar() {
 		// Visualizar ficheiro
 	}

@@ -57,6 +57,7 @@ public class Menu {
 			public void actionPerformed(ActionEvent e) {
 			
 				jfc = new JFileChooser();
+				
 				//jfc.setFileFilter(new FileNameExtensionFilter("xlsx"));
 				//jfc.addChoosableFileFilter(new FileNameExtensionFilter("*.xlsx"));
 
