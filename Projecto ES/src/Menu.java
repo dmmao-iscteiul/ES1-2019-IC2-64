@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -19,8 +20,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Menu {
 	
 	private JFrame frame;
-	private Excel excel;
-	private JFileChooser jfc;
+	private File excel;
 
 	public Menu() {
 		frame = new JFrame("Software");
@@ -53,26 +53,27 @@ public class Menu {
 		JButton selecionar = new JButton("Selecionar ficheiro");
 		
 		selecionar.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						//Ir buscar a SubImagem
-						JFileChooser jfc = new JFileChooser(".");
+			public void actionPerformed(ActionEvent e) {
+				//Ir buscar a SubImagem
+				JFileChooser jfc = new JFileChooser(".");
 
-						FileNameExtensionFilter filter = new FileNameExtensionFilter("");
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("Excel file", "xls", "xlsx");
 
-						jfc.addChoosableFileFilter(filter);
+				jfc.addChoosableFileFilter(filter);
 
-						int returnValue = jfc.showOpenDialog(null);
+				int returnValue = jfc.showOpenDialog(null);
 
-						if (returnValue == JFileChooser.APPROVE_OPTION) {
+				if (returnValue == JFileChooser.APPROVE_OPTION) {
 
-							
-							excel = new Excel(jfc.getSelectedFile());
+					
+					excel = jfc.getSelectedFile();
 
-						}
+				}
 
-					}
+			}
 
-				});
+		});
+
 
 		frame.add(selecionar);
 

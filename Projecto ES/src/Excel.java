@@ -12,7 +12,7 @@ public class Excel {
 	}
 
 	public void visualizar() {
-		// Visualizar ficheiro
+		
 	}
 	
 	public void importar(File f) {
