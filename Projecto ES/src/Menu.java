@@ -7,19 +7,23 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Menu {
+	
 	private JFrame frame;
+	private Excel excel;
+	private JFileChooser jfc;
 
 	public Menu() {
 		frame = new JFrame("Software");
-
 		// para que o botao de fechar a janela termine a aplicacao
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,12 +51,31 @@ public class Menu {
 		frame.setLayout(new GridLayout(5,0));
 
 		JButton selecionar = new JButton("Selecionar ficheiro");
+		
 		selecionar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// açao-- JOANA MOUTINHO
-			}
-		});
+					public void actionPerformed(ActionEvent e) {
+						//Ir buscar a SubImagem
+						JFileChooser jfc = new JFileChooser(".");
+
+						FileNameExtensionFilter filter = new FileNameExtensionFilter("");
+
+						jfc.addChoosableFileFilter(filter);
+
+						int returnValue = jfc.showOpenDialog(null);
+
+						if (returnValue == JFileChooser.APPROVE_OPTION) {
+
+							
+							excel = new Excel(jfc.getSelectedFile());
+
+						}
+
+					}
+
+				});
+
 		frame.add(selecionar);
+
 		
 		
 
@@ -93,12 +116,6 @@ public class Menu {
 		frame.add(analisar);
 	}
 
-//	private void centerFrame() {
-//		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-//
-//		frame.setLocation(dimension.width / 2 - frame.getWidth() / 2, dimension.height / 2 - frame.getHeight() / 2);
-//
-//	}
 
 	public static void main(String[] args) {
 		Menu window = new Menu();
