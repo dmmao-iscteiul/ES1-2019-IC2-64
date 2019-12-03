@@ -35,6 +35,7 @@ public class Menu {
 
 		// para abrir a janela (torna-la visivel)
 		frame.setVisible(true);
+		centerFrame();
 	}
 
 	private void addFrameContent() {
@@ -93,12 +94,12 @@ public class Menu {
 		frame.add(analisar);
 	}
 
-//	private void centerFrame() {
-//		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-//
-//		frame.setLocation(dimension.width / 2 - frame.getWidth() / 2, dimension.height / 2 - frame.getHeight() / 2);
-//
-//	}
+	private void centerFrame() {
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+
+		frame.setLocation(dimension.width / 2 - frame.getWidth() / 2, dimension.height / 2 - frame.getHeight() / 2);
+
+	}
 
 	public static void main(String[] args) {
 		Menu window = new Menu();
