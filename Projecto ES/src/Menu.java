@@ -1,10 +1,8 @@
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -20,7 +18,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Menu {
 	
 	private JFrame frame;
-	private File excel;
+	private Excel excel;
 
 	public Menu() {
 		frame = new JFrame("Software");
@@ -66,7 +64,13 @@ public class Menu {
 				if (returnValue == JFileChooser.APPROVE_OPTION) {
 
 					
-					excel = jfc.getSelectedFile();
+					File excelFile = jfc.getSelectedFile();
+					try {
+						excel = new Excel(excelFile);
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 
 				}
 
@@ -78,12 +82,16 @@ public class Menu {
 		frame.add(selecionar);
 
 		
-		
-
 		JButton visualizar = new JButton("Visualizar Ficheiro");
 		visualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// açao -- carolina
+				//if(excel.equals(null)) 
+					//JOptionPane.showMessageDialog(null, "Ainda não importou o Excel");
+				
+				//else
+
+					ExcelViewer viewer = new ExcelViewer(excel);
+					viewer.open();
 			}
 
 		});
@@ -92,7 +100,7 @@ public class Menu {
 		JButton editar_criar = new JButton("Editar/Criar Regras");
 		editar_criar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// açao-- 
+			
 			}
 
 		});
