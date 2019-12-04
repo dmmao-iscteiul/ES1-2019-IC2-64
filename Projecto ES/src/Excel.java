@@ -12,7 +12,7 @@ public class Excel {
 	}
 	
 	public void importar(File f) {
-		this.selectedExcel=f;
+		 this.selectedExcel=f;
 	}
 	
 

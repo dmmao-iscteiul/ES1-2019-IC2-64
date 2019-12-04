@@ -7,6 +7,6 @@ public class Classe_Teste {
 	}
 	
 	public void teste2() {
-		System.out.println("resultou");
+		 System.out.println("resultou");
 	}
 }

@@ -23,7 +23,7 @@ public class Menu {
 	private JFileChooser jfc;
 
 	public Menu() {
-		frame = new JFrame("Software");
+		 frame = new JFrame("Software");
 		// para que o botao de fechar a janela termine a aplicacao
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
