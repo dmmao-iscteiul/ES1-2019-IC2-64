@@ -71,14 +71,7 @@ public class Excel {
 		case PMD:
 			result.addColumn("PMD", getColumn(8));
 			return result;
-		
-		case is_long_method:
-			result.addColumn("is_long_method", getColumn(9));
-			return result;
-			
-		case is_feature_envy:
-			result.addColumn("is_feature_envy", getColumn(10));
-			return result;
+	
 		}
 	}
 
