@@ -1,25 +1,24 @@
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Menu {
+	
 	private JFrame frame;
+	private Excel excel;
 
 	public Menu() {
 		frame = new JFrame("Software");
-
 		// para que o botao de fechar a janela termine a aplicacao
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,19 +47,49 @@ public class Menu {
 		frame.setLayout(new GridLayout(5,0));
 
 		JButton selecionar = new JButton("Selecionar ficheiro");
+		
 		selecionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// açao-- JOANA MOUTINHO
-			}
-		});
-		frame.add(selecionar);
-		
-		
+				//Ir buscar a SubImagem
+				JFileChooser jfc = new JFileChooser(".");
 
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("Excel file", "xls", "xlsx");
+
+				jfc.addChoosableFileFilter(filter);
+
+				int returnValue = jfc.showOpenDialog(null);
+
+				if (returnValue == JFileChooser.APPROVE_OPTION) {
+
+					
+					File excelFile = jfc.getSelectedFile();
+					try {
+						excel = new Excel(excelFile);
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}
+
+			}
+
+		});
+
+
+		frame.add(selecionar);
+
+		
 		JButton visualizar = new JButton("Visualizar Ficheiro");
 		visualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// açao -- carolina
+				//if(excel.equals(null)) 
+					//JOptionPane.showMessageDialog(null, "Ainda não importou o Excel");
+				
+				//else
+
+					ExcelViewer viewer = new ExcelViewer(excel);
+					viewer.open();
 			}
 
 		});
@@ -69,7 +98,7 @@ public class Menu {
 		JButton editar_criar = new JButton("Editar/Criar Regras");
 		editar_criar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// açao-- 
+			
 			}
 
 		});
@@ -93,6 +122,7 @@ public class Menu {
 		});
 		frame.add(analisar);
 	}
+// HEAD
 
 	private void centerFrame() {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -100,6 +130,9 @@ public class Menu {
 		frame.setLocation(dimension.width / 2 - frame.getWidth() / 2, dimension.height / 2 - frame.getHeight() / 2);
 
 	}
+
+
+// branch 'master' of https://github.com/dmmao-iscteiul/ES1-2019-IC2-64.git
 
 	public static void main(String[] args) {
 		Menu window = new Menu();
