@@ -36,12 +36,35 @@ public class JanelaEdita {
 	
 	public void open() {
 		janela.setTitle(" Valores");
-		janela.setLayout(new GridLayout(2, 4));
+		janela.setLayout(new GridLayout(3, 3));
 		janela.setVisible(true);
 		
+		JLabel jb = new JLabel("Regra");
+		janela.add(jb);
 		
+		JPanel jp1 = new JPanel();
+		janela.add(jp1);
 		
+		JPanel jp2 = new JPanel();
+		janela.add(jp2);
 		
+		JLabel metrica1 = new JLabel("metrica1");
+		janela.add(metrica1);
+		
+		JLabel operador1 = new JLabel("operador1");
+		janela.add(operador1);
+		
+		JTextArea val1 = new JTextArea();
+		janela.add(val1);
+		
+		JLabel metrica2 = new JLabel("metrica2");
+		janela.add(metrica2);
+		
+		JLabel operador2 = new JLabel("operador2");
+		janela.add(operador2);
+		
+		JTextArea val2 = new JTextArea();
+		janela.add(val2);
 		
 	}
 	

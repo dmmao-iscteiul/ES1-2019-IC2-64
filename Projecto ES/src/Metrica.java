@@ -15,8 +15,6 @@ public class Metrica {
 	
 	public Metrica(String nome) {
 		this.nome=nome;
-		this.operadorLogic=operadorLogic;
-		this.valor=valor;
 	}
 	
 	//Valores para operadorLogic

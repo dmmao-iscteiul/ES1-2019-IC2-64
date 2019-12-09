@@ -16,10 +16,10 @@ import javax.swing.WindowConstants;
 
 
 
-public class JanelaCriaRegra {
+public class JanelaCriaRegra extends JanelaRegra {
 	
 	private JFrame janela;
-	private JList lista=new JList();
+	
 	
 	private ArrayList<JCheckBox> listacheckbox = new ArrayList<JCheckBox>();
 	
@@ -36,11 +36,10 @@ public class JanelaCriaRegra {
 	//temos que adicionar as regras a lista de regras
 	
 	public void open() {
-		JCheckBox[] checkboxesreg = new JCheckBox[4];
 		janela.setTitle(" Criar Regras");
 		janela.setLayout(new GridLayout(3, 3));
 		
-		janela.add(lista);
+	
 		
 		JLabel titulo = new JLabel("titulo:");
 		janela.add(titulo);
@@ -63,6 +62,7 @@ public class JanelaCriaRegra {
 		JCheckBox cd = new JCheckBox("CD");
 		janela.add(cd);
 		listacheckbox.add(cd);
+		System.out.println(listacheckbox.size());
 		
 		
 		ActionListener a1 = new ActionListener(){
@@ -96,6 +96,7 @@ public class JanelaCriaRegra {
 				}						
 			}
 		};
+		
 	
 		loc.addActionListener(a1);
 		cyclo.addActionListener(a1);
@@ -112,9 +113,19 @@ public class JanelaCriaRegra {
 		janela.add(ok);	
 		janela.setVisible(true);
 		
+		
 		ok.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				JanelaCriaRegraValores jcrv = new JanelaCriaRegraValores();
+				ArrayList<String> valid = new ArrayList<String>();
+				System.out.println("tamanho: "+ listacheckbox.size());
+				for(int i=0;i<listacheckbox.size();i++){
+					if(listacheckbox.get(i).isSelected()){	
+						valid.add(listacheckbox.get(i).getText());
+					}
+				}
+				System.out.println("Tamanho lista:"+ listacheckbox.size() + " Tamanho valid:" + valid.size());
+				JanelaCriaRegraValores jcrv = new JanelaCriaRegraValores(valid);
 				
 				jcrv.open();
 			}
@@ -127,13 +138,11 @@ public class JanelaCriaRegra {
 	}
 	
 	
-	
-	
-	
 	public static void main(String[] args) {
 		JanelaRegra j = new JanelaRegra();
 		j.open();
 	}
+	
 	
 	
 	

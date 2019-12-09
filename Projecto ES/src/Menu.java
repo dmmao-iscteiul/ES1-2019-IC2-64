@@ -25,6 +25,7 @@ public class Menu {
 		// para que a janela se redimensione de forma a ter todo o seu conteudo
 		// visivel
 		frame.pack();
+		
 	}
 
 	public void open() {
