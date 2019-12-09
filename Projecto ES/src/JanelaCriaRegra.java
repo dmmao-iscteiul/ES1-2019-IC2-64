@@ -22,8 +22,6 @@ public class JanelaCriaRegra {
 	
 	private JFrame janela;
 	private JList lista=new JList();
-	private JButton criarRegra;
-	private JButton editarRegra;
 	
 	private ArrayList<JCheckBox> listacheckbox = new ArrayList<JCheckBox>();
 	
@@ -119,7 +117,8 @@ public class JanelaCriaRegra {
 		ok.addItemListener(new ItemListener(){
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				
+				JanelaCriaRegraValores j= new JanelaCriaRegraValores();
+				j.open();
 			}
 			
 		});
