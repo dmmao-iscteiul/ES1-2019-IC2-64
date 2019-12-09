@@ -12,7 +12,7 @@ import javax.swing.JList;
 import javax.swing.ListModel;
 import javax.swing.WindowConstants;
 
-public class Janela {
+public class JanelaRegra {
 	
 	private JFrame janela;
 	private JList lista=new JList();
@@ -20,7 +20,7 @@ public class Janela {
 	private JButton editarRegra;
 	
 	
-	public Janela() {
+	public JanelaRegra() {
 		janela = new JFrame();
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		janela.setSize(300, 250);
@@ -61,7 +61,7 @@ public class Janela {
 	
 	
 	public static void main(String[] args) {
-		Janela j = new Janela();
+		JanelaRegra j = new JanelaRegra();
 		DefaultListModel<Regra> n = new DefaultListModel<Regra>();
 		//n.addElement(new Regra(1));
 		//n.addElement(new Regra(2));

@@ -80,7 +80,7 @@ public class Menu {
 		JButton editar_criar = new JButton("Editar/Criar Regras");
 		editar_criar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Janela j = new Janela();
+				JanelaRegra j = new JanelaRegra();
 				j.open();
 			}
 

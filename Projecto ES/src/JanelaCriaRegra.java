@@ -14,9 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
-import javafx.scene.control.CheckBox;
 
 public class JanelaCriaRegra {
 	
@@ -114,14 +112,16 @@ public class JanelaCriaRegra {
 		janela.add(ok);	
 		janela.setVisible(true);
 		
-		ok.addItemListener(new ItemListener(){
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				JanelaCriaRegraValores j= new JanelaCriaRegraValores();
-				j.open();
+		ok.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JanelaCriaRegraValores jcrv = new JanelaCriaRegraValores();
+				
+				jcrv.open();
 			}
-			
+
 		});
+		
+		
 		
 		
 	}
@@ -131,7 +131,7 @@ public class JanelaCriaRegra {
 	
 	
 	public static void main(String[] args) {
-		Janela j = new Janela();
+		JanelaRegra j = new JanelaRegra();
 		j.open();
 	}
 	
