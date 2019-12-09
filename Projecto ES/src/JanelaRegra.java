@@ -65,7 +65,7 @@ public class JanelaRegra {
 
 	public void addElementlist(Regra regra) {
 		lista.add((Component)regra);
-
+		System.out.println("ola");
 	}
 
 
