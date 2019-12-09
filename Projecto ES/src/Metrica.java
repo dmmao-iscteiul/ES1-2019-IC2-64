@@ -12,6 +12,19 @@ public class Metrica {
 		this.operadorLogic=operadorLogic;
 		this.valor=valor;
 	}
+	
+	public Metrica(String nome) {
+		this.nome=nome;
+		this.operadorLogic=operadorLogic;
+		this.valor=valor;
+	}
+	
+	//Valores para operadorLogic
+	// 0 - <
+	// 1 - >
+	
+	
+	//nome tem de ser LOC ou CYCLO ou LAA ou CD
 
 	public String getNome() {
 		return nome;

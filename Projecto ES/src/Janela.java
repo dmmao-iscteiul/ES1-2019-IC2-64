@@ -19,6 +19,7 @@ public class Janela {
 	private JButton criarRegra;
 	private JButton editarRegra;
 	
+	
 	public Janela() {
 		janela = new JFrame();
 		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -53,9 +54,7 @@ public class Janela {
 	
 	public void addElementlist(Component regras) {
 		lista.add(regras);
-		
-		
-		
+				
 	}
 	
 	
