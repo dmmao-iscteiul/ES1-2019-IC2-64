@@ -1,15 +1,12 @@
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
@@ -22,11 +19,12 @@ public class JanelaCriaRegra extends JanelaRegra {
 	
 	
 	private ArrayList<JCheckBox> listacheckbox = new ArrayList<JCheckBox>();
+	//private static String nome;
 	
 	
 	public JanelaCriaRegra() {
 		janela = new JFrame();
-		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		janela.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		janela.setSize(300, 250);
 	}
 	
@@ -125,9 +123,10 @@ public class JanelaCriaRegra extends JanelaRegra {
 					}
 				}
 				System.out.println("Tamanho lista:"+ listacheckbox.size() + " Tamanho valid:" + valid.size());
-				JanelaCriaRegraValores jcrv = new JanelaCriaRegraValores(valid);
-				
+				janela.dispose();
+				JanelaCriaRegraValores jcrv = new JanelaCriaRegraValores(valid,nome.getText());			
 				jcrv.open();
+				
 			}
 
 		});

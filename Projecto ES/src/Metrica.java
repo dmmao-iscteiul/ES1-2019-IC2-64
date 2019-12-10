@@ -29,10 +29,6 @@ public class Metrica {
 	}
 
 
-	public int getOperadorLogic() {
-		return operadorLogic;
-	}
-
 	public void setOperadorLogic(int operadorLogic) {
 		this.operadorLogic = operadorLogic;
 	}
@@ -43,6 +39,13 @@ public class Metrica {
 
 	public void setValor(int valor) {
 		this.valor = valor;
+	}
+	
+	public String getOperador(){
+		if(this.operadorLogic==0){
+			return "menor";
+		}else
+			return "maior";
 	}
 	
 	

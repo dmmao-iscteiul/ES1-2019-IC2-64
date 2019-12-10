@@ -22,13 +22,14 @@ public class JanelaCriaRegraValores extends JanelaRegra {
 	private static JCheckBox menor2;
 	private static JTextArea val1;
 	private static JTextArea val2;
+	private static String nome;
 
-
-	public JanelaCriaRegraValores(ArrayList<String> valid) {
+	public JanelaCriaRegraValores(ArrayList<String> valid, String string) {
 		janela = new JFrame();
-		janela.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		janela.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		janela.setSize(300, 250);
 		meth = valid;
+		nome=string;
 	}
 
 	public void open() {
@@ -36,7 +37,6 @@ public class JanelaCriaRegraValores extends JanelaRegra {
 		janela.setLayout(new GridLayout(3, 4));
 		janela.setVisible(true);
 
-		System.out.println("antes do if");
 		if (meth.size() == 2) {
 			JLabel representa1 = new JLabel(meth.get(0));
 			janela.add(representa1);
@@ -44,8 +44,6 @@ public class JanelaCriaRegraValores extends JanelaRegra {
 			janela.add(maior1);
 			menor1 = new JCheckBox("menor");
 			janela.add(menor1);
-			// cba.add(maior1);
-			// cba.add(menor1);
 			ActionListener a1 = new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -100,24 +98,43 @@ public class JanelaCriaRegraValores extends JanelaRegra {
 			janela.add(val2);
 
 		} else {
-			System.out.println(meth.get(0));
 			JLabel loc = new JLabel(meth.get(0));
 			janela.add(loc);
-			JCheckBox maior1 = new JCheckBox("maior");
+			maior1 = new JCheckBox("maior");
 			janela.add(maior1);
-			JCheckBox menor1 = new JCheckBox("menor");
+			menor1 = new JCheckBox("menor");
 			janela.add(menor1);
 			val1 = new JTextArea();
 			janela.add(val1);
+			ActionListener a1 = new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if (e.getSource() == maior1) {
+						if ((menor1.isEnabled())) {
+							menor1.setEnabled(false);
+						} else {
+							menor1.setEnabled(true);
+						}
+					} else {
+						if ((maior1.isEnabled())) {
+							maior1.setEnabled(false);
+						} else {
+							maior1.setEnabled(true);
+						}
+					}
+				}
+			};
+			maior1.addActionListener(a1);
+			menor1.addActionListener(a1);
 		}
 
 		JButton ok = new JButton("ok");
 		janela.add(ok);
 
-		ok.addActionListener(new ActionListener(){
+		ok.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (meth.size() ==1) {
+				if (meth.size() == 1) {
 
 					if (maior1.isSelected()) {
 						metricaArray.add(new Metrica(meth.get(0), 1, Integer.parseInt(val1.getText())));
@@ -139,9 +156,7 @@ public class JanelaCriaRegraValores extends JanelaRegra {
 				}
 				System.out.println(metricaArray);
 				sendRegra();
-				
-				
-				
+				janela.dispose();
 			}
 		});
 
@@ -153,11 +168,17 @@ public class JanelaCriaRegraValores extends JanelaRegra {
 
 		JLabel enchimento3 = new JLabel();
 		janela.add(enchimento3);
-
 	}
-	
-	public void sendRegra(){
-		super.addElementlist(new Regra(metricaArray.get(0),metricaArray.get(1)));
+
+	public void sendRegra() {
+		System.out.println("Antes de sendRegra");
+		if(metricaArray.size()==2){
+			super.addElementList(new Regra(nome,metricaArray.get(0), metricaArray.get(1)));	
+		}else{
+			super.addElementList(new Regra(nome,metricaArray.get(0)));
+		}
+		System.out.println("Depois");
+		metricaArray.clear();
 	}
 
 	public static void main(String[] args) {

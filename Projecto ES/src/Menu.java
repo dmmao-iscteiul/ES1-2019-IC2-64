@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -14,6 +15,8 @@ public class Menu {
 	private JFrame frame;
 	private Excel excel;
 	private JFileChooser jfc;
+	//private static DefaultListModel model = new DefaultListModel();
+
 
 	public Menu() {
 		 frame = new JFrame("Software");
@@ -25,8 +28,16 @@ public class Menu {
 		// para que a janela se redimensione de forma a ter todo o seu conteudo
 		// visivel
 		frame.pack();
-		
+		open();
 	}
+
+//	public static DefaultListModel getModelList() {
+//		return model;
+//	}
+//
+//	public static void setModelList(DefaultListModel model) {
+//		Menu.model = model;
+//	}
 
 	public void open() {
 		 frame.setSize(300, 250);
